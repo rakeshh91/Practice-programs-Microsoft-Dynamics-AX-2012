@@ -1,0 +1,1582 @@
+Exportfile for AOT version 1.0 or later
+Formatversion: 1
+
+***Element: DBT
+
+; Microsoft Dynamics AX Table : TabEmplProjVts unloaded
+; --------------------------------------------------------------------------------
+  TABLEVERSION 1
+  
+  TABLE #TabEmplProjVts
+    EnforceFKRelation 1
+    PROPERTIES
+      Name                #TabEmplProjVts
+      CreateRecIdIndex    #Yes
+      PrimaryIndex        #SurrogateKey
+      ClusterIndex        #SurrogateKey
+      ValidTimeStateFieldType   #Date
+      Origin              #{B321A14F-12F6-417D-9531-D7B77EEBC81A}
+    ENDPROPERTIES
+    
+    FIELDS
+      FIELD #EmplID
+        STRING
+        PROPERTIES
+          Name                #EmplID
+          Table               #TabEmplProjVts
+          Origin              #{862C7A06-3E94-4F17-A88D-82CD8671D635}
+          ExtendedDataType    #EmployeeId_RU
+          StringSize          #20
+        ENDPROPERTIES
+        
+      FIELD #EPPrimaryKey
+        STRING
+        PROPERTIES
+          Name                #EPPrimaryKey
+          Table               #TabEmplProjVts
+          Origin              #{36C45781-3F2B-4045-B125-325EEFA6DAE5}
+        ENDPROPERTIES
+        
+      FIELD #ProjId
+        STRING
+        PROPERTIES
+          Name                #ProjId
+          Table               #TabEmplProjVts
+          Origin              #{B8BAB857-6DF5-469F-B4C9-4E31C4EC3677}
+          ExtendedDataType    #ProjId
+          StringSize          #20
+        ENDPROPERTIES
+        
+      FIELD #ValidFrom
+        DATE
+        PROPERTIES
+          Name                #ValidFrom
+          Mandatory           #Yes
+          Table               #TabEmplProjVts
+          Origin              #{6CEDBDAD-334A-474B-AB22-3CA2886B888D}
+          ExtendedDataType    #ValidFromDate
+        ENDPROPERTIES
+        
+      FIELD #ValidTo
+        DATE
+        PROPERTIES
+          Name                #ValidTo
+          Table               #TabEmplProjVts
+          Origin              #{3E32A981-47FC-4F53-A624-F2AEDA595DC3}
+          ExtendedDataType    #ValidToDate
+        ENDPROPERTIES
+        
+    ENDFIELDS
+    GROUPS
+    ENDGROUPS
+    
+    INDICES
+      #idxEPAltKeyVts
+      PROPERTIES
+        Name                #idxEPAltKeyVts
+        AllowDuplicates     #No
+        AlternateKey        #Yes
+        ValidTimeStateKey   #Yes
+        ValidTimeStateMode  #Gap
+        Origin              #{33885893-CF40-49B4-B0F3-0635E808DFB1}
+      ENDPROPERTIES
+      
+      INDEXFIELDS
+        #EmplID
+        #ProjId
+        #ValidFrom
+        #ValidTo
+      ENDINDEXFIELDS
+      
+    ENDINDICES
+    FULLTEXTINDICES
+    ENDFULLTEXTINDICES
+    REFERENCES
+    ENDREFERENCES
+    
+    DELETEACTIONS
+    ENDDELETEACTIONS
+    
+    METHODS
+    ENDMETHODS
+  ENDTABLE
+  
+
+***Element: DBT
+
+; Microsoft Dynamics AX Table : ClothesTable unloaded
+; --------------------------------------------------------------------------------
+  TABLEVERSION 1
+  
+  TABLE #ClothesTable
+    EnforceFKRelation 1
+    PROPERTIES
+      Name                #ClothesTable
+      CreateRecIdIndex    #Yes
+      PrimaryIndex        #SurrogateKey
+      ClusterIndex        #SurrogateKey
+      Origin              #{82C6B252-4C9E-48E0-8903-B3800435E3E7}
+    ENDPROPERTIES
+    
+    FIELDS
+      FIELD #ClotheId
+        STRING
+        PROPERTIES
+          Name                #ClotheId
+          Table               #ClothesTable
+          Origin              #{F8279DD0-88BD-46EF-8747-2EA7C326A52C}
+        ENDPROPERTIES
+        
+      FIELD #CollectionTypeId
+        ENUM
+        PROPERTIES
+          Name                #CollectionTypeId
+          Table               #ClothesTable
+          Origin              #{CAB22856-3E23-43D7-BA78-F0AAAAFE1F66}
+          ExtendedDataType    #CollectionTypeEDT
+          EnumType            #CollectionTypeId
+        ENDPROPERTIES
+        
+      FIELD #Name
+        STRING
+        PROPERTIES
+          Name                #Name
+          Table               #ClothesTable
+          Origin              #{03527BB2-5209-46B9-9A9A-8AA8C329754E}
+        ENDPROPERTIES
+        
+    ENDFIELDS
+    GROUPS
+    ENDGROUPS
+    
+    INDICES
+    ENDINDICES
+    FULLTEXTINDICES
+    ENDFULLTEXTINDICES
+    REFERENCES
+    ENDREFERENCES
+    
+    DELETEACTIONS
+      #MenClothesOrder(Relation1)
+      PROPERTIES
+        Table               #MenClothesOrder
+        DeleteAction        #Cascade + Restricted
+        Relation            #Relation1
+      ENDPROPERTIES
+      
+    ENDDELETEACTIONS
+    
+    METHODS
+    ENDMETHODS
+  ENDTABLE
+  
+
+***Element: DBT
+
+; Microsoft Dynamics AX Table : MenClothesOrder unloaded
+; --------------------------------------------------------------------------------
+  TABLEVERSION 1
+  
+  TABLE #MenClothesOrder
+    EnforceFKRelation 1
+    PROPERTIES
+      Name                #MenClothesOrder
+      CreateRecIdIndex    #Yes
+      PrimaryIndex        #SurrogateKey
+      ClusterIndex        #SurrogateKey
+      Origin              #{7CBBFD8F-2A9E-4951-B8ED-791907A4D452}
+    ENDPROPERTIES
+    
+    FIELDS
+      FIELD #ClotheId
+        STRING
+        PROPERTIES
+          Name                #ClotheId
+          Table               #MenClothesOrder
+          Origin              #{1261E7ED-AE0D-4BE4-95D8-A4D2C70B58A8}
+        ENDPROPERTIES
+        
+      FIELD #OrderId
+        STRING
+        PROPERTIES
+          Name                #OrderId
+          Table               #MenClothesOrder
+          Origin              #{39F382B2-5F0C-4517-BD6A-CF5EFA6ACBBC}
+        ENDPROPERTIES
+        
+      FIELD #Quantity
+        INT
+        PROPERTIES
+          Name                #Quantity
+          Table               #MenClothesOrder
+          Origin              #{CE203F79-AED4-49FB-A3FD-819C1FBA63B6}
+        ENDPROPERTIES
+        
+    ENDFIELDS
+    GROUPS
+    ENDGROUPS
+    
+    INDICES
+    ENDINDICES
+    FULLTEXTINDICES
+    ENDFULLTEXTINDICES
+    REFERENCES
+      REFERENCE #Relation1
+        PROPERTIES
+          Name                #Relation1
+          Table               #ClothesTable
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE NORMAL
+          PROPERTIES
+            Field               #ClotheId
+            RelatedField        #ClotheId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+    ENDREFERENCES
+    
+    DELETEACTIONS
+    ENDDELETEACTIONS
+    
+    METHODS
+    ENDMETHODS
+  ENDTABLE
+  
+
+***Element: DBT
+
+; Microsoft Dynamics AX Table : WomenClothesOrder unloaded
+; --------------------------------------------------------------------------------
+  TABLEVERSION 1
+  
+  TABLE #WomenClothesOrder
+    EnforceFKRelation 1
+    PROPERTIES
+      Name                #WomenClothesOrder
+      CreateRecIdIndex    #Yes
+      PrimaryIndex        #SurrogateKey
+      ClusterIndex        #SurrogateKey
+      Origin              #{F3A3CEA2-C0C5-428D-8963-49D67B1B0CFF}
+    ENDPROPERTIES
+    
+    FIELDS
+      FIELD #ClotheId
+        STRING
+        PROPERTIES
+          Name                #ClotheId
+          Table               #WomenClothesOrder
+          Origin              #{4C22A11E-D7FB-438E-8F0D-7DECE1B62263}
+        ENDPROPERTIES
+        
+      FIELD #OrderId
+        STRING
+        PROPERTIES
+          Name                #OrderId
+          Table               #WomenClothesOrder
+          Origin              #{A6205D11-80A7-47D0-9A61-FC3892FD2C7E}
+        ENDPROPERTIES
+        
+      FIELD #Quantity
+        INT
+        PROPERTIES
+          Name                #Quantity
+          Table               #WomenClothesOrder
+          Origin              #{35DFF91D-AF10-4F2F-B89D-3543C8E84235}
+        ENDPROPERTIES
+        
+    ENDFIELDS
+    GROUPS
+    ENDGROUPS
+    
+    INDICES
+    ENDINDICES
+    FULLTEXTINDICES
+    ENDFULLTEXTINDICES
+    REFERENCES
+      REFERENCE #Relation1
+        PROPERTIES
+          Name                #Relation1
+          Table               #ClothesTable
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE NORMAL
+          PROPERTIES
+            Field               #ClotheId
+            RelatedField        #ClotheId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+    ENDREFERENCES
+    
+    DELETEACTIONS
+    ENDDELETEACTIONS
+    
+    METHODS
+    ENDMETHODS
+  ENDTABLE
+  
+
+***Element: DBT
+
+; Microsoft Dynamics AX Table : ChildrenClothesOrder unloaded
+; --------------------------------------------------------------------------------
+  TABLEVERSION 1
+  
+  TABLE #ChildrenClothesOrder
+    EnforceFKRelation 1
+    PROPERTIES
+      Name                #ChildrenClothesOrder
+      CreateRecIdIndex    #Yes
+      PrimaryIndex        #SurrogateKey
+      ClusterIndex        #SurrogateKey
+      Origin              #{8C91853C-C2FC-4ED8-9B3C-3DC091DCA7CA}
+    ENDPROPERTIES
+    
+    FIELDS
+      FIELD #ClotheId
+        STRING
+        PROPERTIES
+          Name                #ClotheId
+          Table               #ChildrenClothesOrder
+          Origin              #{8E359CE8-ADE3-4137-9C88-91A9CEAD39AF}
+        ENDPROPERTIES
+        
+      FIELD #OrderId
+        STRING
+        PROPERTIES
+          Name                #OrderId
+          Table               #ChildrenClothesOrder
+          Origin              #{1D3F85A3-C2D2-4D99-A4A0-A38F75C5452B}
+        ENDPROPERTIES
+        
+      FIELD #Quantity
+        INT
+        PROPERTIES
+          Name                #Quantity
+          Table               #ChildrenClothesOrder
+          Origin              #{3640F215-816E-4140-8CDD-ABE2B3D4073F}
+        ENDPROPERTIES
+        
+    ENDFIELDS
+    GROUPS
+    ENDGROUPS
+    
+    INDICES
+    ENDINDICES
+    FULLTEXTINDICES
+    ENDFULLTEXTINDICES
+    REFERENCES
+      REFERENCE #Relation1
+        PROPERTIES
+          Name                #Relation1
+          Table               #ClothesTable
+          UseDefaultRoleNames #Yes
+        ENDPROPERTIES
+        
+        FIELDREFERENCES
+          REFERENCETYPE NORMAL
+          PROPERTIES
+            Field               #ClotheId
+            RelatedField        #ClotheId
+          ENDPROPERTIES
+          
+        ENDFIELDREFERENCES
+      ENDREFERENCE
+    ENDREFERENCES
+    
+    DELETEACTIONS
+    ENDDELETEACTIONS
+    
+    METHODS
+    ENDMETHODS
+  ENDTABLE
+  
+
+***Element: UTE
+
+; Microsoft Dynamics AX Enum: CollectionTypeEDT unloaded
+; --------------------------------------------------------------------------------
+  USERTYPEVERSION 6
+  
+  USERTYPE #CollectionTypeEDT
+  ENUM
+    PROPERTIES
+      Name                #CollectionTypeEDT
+      Origin              #{E02CAA2D-3697-41F9-AD0A-3720454704C8}
+      EnumType            #CollectionTypeId
+    ENDPROPERTIES
+    
+    TYPEELEMENTS
+    ENDTYPEELEMENTS
+    
+    TYPEREFERENCES
+    ENDTYPEREFERENCES
+    
+    TYPELOOKUPS
+    ENDTYPELOOKUPS
+    
+  ENDUSERTYPE
+  
+
+***Element: DBE
+
+; Microsoft Dynamics AX Enumtype : CollectionTypeId unloaded
+; --------------------------------------------------------------------------------
+  ENUMTYPEVERSION 1
+  
+  ENUMTYPE #CollectionTypeId
+    PROPERTIES
+      Name                #CollectionTypeId
+      UseEnumValue        #Yes
+      Origin              #{64EC3691-CEAA-4E8B-A56D-C30FEBE1A6C7}
+    ENDPROPERTIES
+    
+    TYPEELEMENTS
+      #Men
+      PROPERTIES
+        Name                #Men
+        Label               #Men
+        EnumValue           #0
+      ENDPROPERTIES
+      
+      #Women
+      PROPERTIES
+        Name                #Women
+        Label               #Women
+        EnumValue           #1
+      ENDPROPERTIES
+      
+      #Children
+      PROPERTIES
+        Name                #Children
+        Label               #Children
+        EnumValue           #2
+      ENDPROPERTIES
+      
+    ENDTYPEELEMENTS
+  ENDENUMTYPE
+  
+
+***Element: 
+
+; Microsoft Dynamics AX ***UNKNOWN*** : DateRakesh unloaded
+; --------------------------------------------------------------------------------
+  VERSION 1
+  
+  ***UNKNOWN*** #DateRakesh
+  END***UNKNOWN***
+  
+
+***Element: FRM
+
+; Microsoft Dynamics AX Forms unloaded
+; --------------------------------------------------------------------------------
+FRMVERSION 12
+
+FORM #ProgressTestForm
+  PROPERTIES
+    Name                #ProgressTestForm
+    Origin              #{90C0460E-BB98-444F-94AB-CA92F12415E0}
+  ENDPROPERTIES
+  
+  METHODS
+    SOURCE #classDeclaration
+      #public class FormRun extends ObjectRun
+      #{
+      #    real                         jobsFinished;
+      #    real                         jobsTotal;
+      #    real                         p;
+      #}
+    ENDSOURCE
+  ENDMETHODS
+  OBJECTBANK
+    PROPERTIES
+    ENDPROPERTIES
+    
+  ENDOBJECTBANK
+  
+  REFERENCEDATASOURCES
+  ENDREFERENCEDATASOURCES
+  
+  JOINS
+  ENDJOINS
+  
+  PARTREFERENCES
+  ENDPARTREFERENCES
+  
+  DESIGN
+    PROPERTIES
+    ENDPROPERTIES
+    
+    CONTAINER
+      CONTROL GROUP
+        PROPERTIES
+          Name                #ProgressBar
+          Width               #Column width
+          ElementPosition     #1288490187
+          HierarchyParent     #ProgressGroup
+          FrameType           #None
+          LeftMargin          #8
+          RightMargin         #8
+          ArrangeMethod       #Horizontal, flush left
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL GROUP
+        PROPERTIES
+          Name                #ProgressGroup
+          Width               #Column width
+          ElementPosition     #1073741823
+          FrameType           #None
+          LeftMargin          #8
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL BUTTON
+        PROPERTIES
+          Name                #Finish
+          ElementPosition     #572662304
+          HierarchyParent     #ProgressGroup
+          Text                #Finish
+        ENDPROPERTIES
+        
+        METHODS
+          SOURCE #clicked
+            #void clicked()
+            #{
+            #    super();
+            #
+            #
+            #
+            #
+            #    jobsFinished = 4;
+            #    jobsTotal = 5;
+            #
+            #    // BP deviation documented
+            #    p = jobsTotal > 0 ?
+            #        (jobsFinished * 1000 / jobsTotal) :
+            #        0;
+            #
+            #   // p = (_allJobsFinished || finishedButtonEnabled) ? 1000 : p > 1000 ? 1000 : p;
+            #    progress.pos(real2int(p));
+            #    progress.rangeHi(1000);
+            #    progress.update();
+            #
+            #    progressPercent.text(strFmt('%1%', p/10));
+            #}
+          ENDSOURCE
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL PROGRESS
+        PROPERTIES
+          Name                #Progress
+          AutoDeclaration     #Yes
+          Left                #Left edge
+          Width               #Column width
+          ElementPosition     #1073741822
+          HierarchyParent     #ProgressBar
+          RangeHi             #1000
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL STATICTEXT
+        PROPERTIES
+          Name                #UpgradeProgressLabel
+          ElementPosition     #858993458
+          HierarchyParent     #ProgressGroup
+          Text                #@SYS314330
+          FontSize            #9
+          Bold                #Bold
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+      CONTROL STRINGEDIT
+        PROPERTIES
+          Name                #ProgressPercent
+          AutoDeclaration     #Yes
+          AllowEdit           #No
+          Left                #Right edge
+          Width               #50
+          Height              #20
+          ElementPosition     #1610612733
+          HierarchyParent     #ProgressBar
+          Border              #None
+          Alignment           #Right
+          ShowLabel           #No
+        ENDPROPERTIES
+        
+        METHODS
+        ENDMETHODS
+      ENDCONTROL 
+      
+    ENDCONTAINER
+    
+  ENDDESIGN
+  
+  PERMISSIONS #Permissions
+    PROPERTIES
+    ENDPROPERTIES
+    
+    PERMISSIONSET #Read
+      PROPERTIES
+      ENDPROPERTIES
+      
+      FORM #Controls
+      ENDFORM
+      
+    TABLES #Tables
+    ENDTABLES
+    
+  SERVERMETHODS #Server Methods
+  ENDSERVERMETHODS
+  
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+PERMISSIONSET #Update
+  PROPERTIES
+  ENDPROPERTIES
+  
+  FORM #Controls
+  ENDFORM
+  
+TABLES #Tables
+ENDTABLES
+
+SERVERMETHODS #Server Methods
+ENDSERVERMETHODS
+
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+PERMISSIONSET #Create
+  PROPERTIES
+  ENDPROPERTIES
+  
+  FORM #Controls
+  ENDFORM
+  
+TABLES #Tables
+ENDTABLES
+
+SERVERMETHODS #Server Methods
+ENDSERVERMETHODS
+
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+PERMISSIONSET #Delete
+  PROPERTIES
+  ENDPROPERTIES
+  
+  FORM #Controls
+  ENDFORM
+  
+TABLES #Tables
+ENDTABLES
+
+SERVERMETHODS #Server Methods
+ENDSERVERMETHODS
+
+ASSOCIATEDFORMS #Associated Forms
+ENDASSOCIATEDFORMS
+
+ENDPERMISSIONSET
+
+ENDPERMISSIONS
+
+ENDFORM
+
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: SBS_CreateXML_DX300A unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #SBS_CreateXML_DX300A
+    #static void SBS_CreateXML_DX300A(Args _args)
+    #{
+    #    XmlDocument doc;
+    #    XmlElement  Envelope,Header,MessageId,Company,Action,RequestMessageId,GFNCustBankAccount,CustBankAccount;
+    #    XmlElement  Body,MessageParts,FreeTextInvoice,CustInvoiceTable,CurrencyCode,DocumentDate,DueDate,ExchRate_W,GFNBillingType,GFNDocumentNum;
+    #    XmlElement  GFNDocumenttype,GFNSummaryDocNum,InvoiceDate,OrderAccount,PaymMode,CustInvoiceLine,AmountCur,GFNCorrectedTaxAmount,LedgerDimension;
+    #    XmlElement  MainAccount,Quantity,TaxItemGroup;
+    #    XmlElement  AccountID,AccountNum,BankCIN,BankIBAN,ContactPerson,CustAccount,CustDomNumber_BE,Name,RegistrationNum,SWIFTNo,PostalAddrView;
+    #    XmlElement  nodeTable,City,CountryRegionId,DistrictName,LocationName,State,Street,ZipCode,CustDDMandate;
+    #    XmlElement  nodeAccount,CustAccount2,GfnCustDirectDebitRefNum,MandatePaymentType,MandateReference,MandateScheme,SignatureDate,Status;
+    #    XmlElement  nodeName,BankAccount;
+    #    CustTable   custTable;
+    #    #define.filename('C:\\DX300A_CreateLatest.xml')
+    #    ;
+    #
+    #    doc = XmlDocument::newBlank();
+    #    Envelope = doc.createElement('Envelope');
+    #    Envelope.setAttribute('xmlns','http://schemas.microsoft.com/dynamics/2011/01/documents/Message');
+    #
+    #    Header = doc.createElement('Header');
+    #    Envelope.appendChild(Header);
+    #
+    #    MessageId = doc.createElement('MessageId');
+    #    Header.appendChild(MessageId);
+    #    MessageId.innerText(strFmt('%1',newGuid()));
+    #
+    #    Company = doc.createElement('Company');
+    #    Header.appendChild(Company);
+    #    Company.innerText('FCDE');
+    #
+    #    Action = doc.createElement('Action');
+    #    Header.appendChild(Action);
+    #    Action.innerText('http://schemas.microsoft.com/dynamics/2008/01/services/FreeTextInvoiceService/create');
+    #
+    #    RequestMessageId = doc.createElement('RequestMessageId');
+    #    Header.appendChild(RequestMessageId);
+    #    RequestMessageId.innerText(MessageId.innerText());
+    #
+    #    Body = doc.createElement('Body');
+    #    Envelope.appendChild(Body);
+    #
+    #    MessageParts = doc.createElement('MessageParts');
+    #    Body.appendChild(MessageParts);
+    #
+    #     GFNCustBankAccount = doc.createElement('GFNCustBankAccount');
+    #    GFNCustBankAccount.setAttribute('xmlns','http://schemas.microsoft.com/dynamics/2008/01/documents/GFNCustBankAccount');
+    #    MessageParts.appendChild(GFNCustBankAccount);
+    #
+    #
+    #    CustBankAccount = doc.createElement('CustBankAccount');
+    #    CustBankAccount.setAttribute('class','entity');
+    #    GFNCustBankAccount.appendChild(CustBankAccount);
+    #
+    #    AccountID = doc.createElement('AccountID');
+    #    AccountID.innerText('843');
+    #    CustBankAccount.appendChild(AccountID);
+    #
+    #    AccountNum = doc.createElement('AccountNum');
+    #    AccountNum.innerText('12345663');
+    #    CustBankAccount.appendChild(AccountNum);
+    #
+    #    BankCIN = doc.createElement('BankCIN');
+    #    CustBankAccount.appendChild(BankCIN);
+    #
+    #    BankIBAN = doc.createElement('BankIBAN');
+    #    BankIBAN.innerText('GB29NWBK60161331926819');
+    #    CustBankAccount.appendChild(BankIBAN);
+    #
+    #    ContactPerson = doc.createElement('ContactPerson');
+    #    CustBankAccount.appendChild(ContactPerson);
+    #
+    #    CurrencyCode = doc.createElement('CurrencyCode');
+    #    CustBankAccount.appendChild(CurrencyCode);
+    #
+    #    CustAccount = doc.createElement('CustAccount');
+    #    CustAccount.innerText('FCDETESTCUST000003');
+    #    CustBankAccount.appendChild(CustAccount);
+    #
+    #    CustDomNumber_BE = doc.createElement('CustDomNumber_BE');
+    #    CustBankAccount.appendChild(CustDomNumber_BE);
+    #
+    #    Name = doc.createElement('Name');
+    #    Name.innerText('Testbank3');
+    #    CustBankAccount.appendChild(Name);
+    #
+    #    RegistrationNum = doc.createElement('RegistrationNum');
+    #    RegistrationNum.innerText('123456');
+    #    CustBankAccount.appendChild(RegistrationNum);
+    #
+    #    SWIFTNo = doc.createElement('SWIFTNo');
+    #    CustBankAccount.appendChild(SWIFTNo);
+    #
+    #    PostalAddrView = doc.createElement('PostalAddrView');
+    #    PostalAddrView.setAttribute('class','entity');
+    #    CustBankAccount.appendChild(PostalAddrView);
+    #
+    #    City = doc.createElement('City');
+    #    PostalAddrView.appendChild(City);
+    #
+    #    CountryRegionId = doc.createElement('CountryRegionId');
+    #    CountryRegionId.innerText('GB');
+    #    PostalAddrView.appendChild(CountryRegionId);
+    #
+    #    DistrictName = doc.createElement('DistrictName');
+    #    PostalAddrView.appendChild(DistrictName);
+    #
+    #    LocationName = doc.createElement('LocationName');
+    #    LocationName.innertext('Default');
+    #    PostalAddrView.appendChild(LocationName);
+    #
+    #    State = doc.createElement('State');
+    #    PostalAddrView.appendChild(State);
+    #
+    #    Street = doc.createElement('Street');
+    #    Street.innerText('ASDCD');
+    #    PostalAddrView.appendChild(Street);
+    #
+    #    ZipCode = doc.createElement('ZipCode');
+    #    ZipCode.innerText('CR2 6XH');
+    #    PostalAddrView.appendChild(ZipCode);
+    #
+    #    CustDDMandate = doc.createElement('CustDDMandate');
+    #    CustDDMandate.setAttribute('class','entity');
+    #    CustBankAccount.appendChild(CustDDMandate);
+    #
+    #    BankAccount = doc.createElement('BankAccount');
+    #    BankAccount.innerText(AccountID.innerText());
+    #    CustDDMandate.appendChild(BankAccount);
+    #
+    #    CustAccount2 = doc.createElement('CustAccount');
+    #    CustAccount2.innerText(CustAccount.innerText());
+    #    CustDDMandate.appendChild(CustAccount2);
+    #
+    #    GfnCustDirectDebitRefNum = doc.createElement('GfnCustDirectDebitRefNum');
+    #    GfnCustDirectDebitRefNum.innerText('CUSNUM843');
+    #    CustDDMandate.appendChild(GfnCustDirectDebitRefNum);
+    #
+    #    MandatePaymentType = doc.createElement('MandatePaymentType');
+    #    MandatePaymentType.innerText('Recurring');
+    #    CustDDMandate.appendChild(MandatePaymentType);
+    #
+    #    MandateReference = doc.createElement('MandateReference');
+    #    MandateReference.innerText('743');
+    #    CustDDMandate.appendChild(MandateReference);
+    #
+    #    MandateScheme = doc.createElement('MandateScheme');
+    #    MandateScheme.innerText('COR1');
+    #    CustDDMandate.appendChild(MandateScheme);
+    #
+    #    SignatureDate = doc.createElement('SignatureDate');
+    #    SignatureDate.innerText('2014-07-13');
+    #    CustDDMandate.appendChild(SignatureDate);
+    #
+    #    Status = doc.createElement('Status');
+    #    Status.innerText('New');
+    #    CustDDMandate.appendChild(Status);
+    #
+    #    doc.appendChild(Envelope);
+    #
+    #    doc.save(#filename);
+    #
+    #    info('Done');
+    #}
+    #
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{47E0631B-E796-4C61-A9BB-61687DD6F090}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: xml_rak_370A unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #xml_rak_370A
+    #static void xml_rak_370A(Args _args)
+    #{
+    #    XmlDocument doc;
+    #    XmlElement  Envelope,Header,MessageId,Company,Action,RequestMessageId,GFNVendBankAccount,VendBankAccount;
+    #    XmlElement  Body,MessageParts,FreeTextInvoice,CustInvoiceTable,CurrencyCode,DocumentDate,DueDate,ExchRate_W,GFNBillingType,GFNDocumentNum;
+    #    XmlElement  GFNDocumenttype,GFNSummaryDocNum,InvoiceDate,OrderAccount,PaymMode,CustInvoiceLine,AmountCur,GFNCorrectedTaxAmount,LedgerDimension;
+    #    XmlElement  MainAccount,Quantity,TaxItemGroup;
+    #    XmlElement  AccountID,AccountNum,BankCIN,BankIBAN,ContactPerson,VendAccount,CustDomNumber_BE,Name,RegistrationNum,SWIFTNo,PostalAddrView;
+    #    XmlElement  nodeTable,City,CountryRegionId,DistrictName,LocationName,State,Street,ZipCode,CustDDMandate;
+    #    XmlElement  nodeAccount,CustAccount2,GfnCustDirectDebitRefNum,MandatePaymentType,MandateReference,MandateScheme,SignatureDate,Status;
+    #    XmlElement  nodeName,BankAccount,MsgToBank;
+    #    CustTable   custTable;
+    #    #define.filename('C:\\DX370ACreate.xml')
+    #    ;
+    #
+    #    doc = XmlDocument::newBlank();
+    #    Envelope = doc.createElement('Envelope');
+    #    Envelope.setAttribute('xmlns','http://schemas.microsoft.com/dynamics/2011/01/documents/Message');
+    #
+    #    Header = doc.createElement('Header');
+    #    Envelope.appendChild(Header);
+    #
+    #    MessageId = doc.createElement('MessageId');
+    #    Header.appendChild(MessageId);
+    #    MessageId.innerText(strFmt('%1',newGuid()));
+    #
+    #    Company = doc.createElement('Company');
+    #    Header.appendChild(Company);
+    #    Company.innerText('FCDE');
+    #
+    #    Action = doc.createElement('Action');
+    #    Header.appendChild(Action);
+    #    Action.innerText('http://schemas.microsoft.com/dynamics/2008/01/services/GFNVendBankAccountService/create');
+    #
+    #    RequestMessageId = doc.createElement('RequestMessageId');
+    #    Header.appendChild(RequestMessageId);
+    #    RequestMessageId.innerText(MessageId.innerText());
+    #
+    #    Body = doc.createElement('Body');
+    #    Envelope.appendChild(Body);
+    #
+    #    MessageParts = doc.createElement('MessageParts');
+    #    Body.appendChild(MessageParts);
+    #
+    #    GFNVendBankAccount = doc.createElement('GFNVendBankAccount');
+    #    GFNVendBankAccount.setAttribute('xmlns','http://schemas.microsoft.com/dynamics/2008/01/documents/GFNVendBankAccount');
+    #    MessageParts.appendChild(GFNVendBankAccount);
+    #
+    #
+    #    VendBankAccount = doc.createElement('VendBankAccount');
+    #    VendBankAccount.setAttribute('class','entity');
+    #    GFNVendBankAccount.appendChild(VendBankAccount);
+    #
+    #    AccountID = doc.createElement('AccountID');
+    #    AccountID.innerText('11012040');
+    #    VendBankAccount.appendChild(AccountID);
+    #
+    #    AccountNum = doc.createElement('AccountNum');
+    #    AccountNum.innerText('110120400');
+    #    VendBankAccount.appendChild(AccountNum);
+    #
+    #    BankCIN = doc.createElement('BankCIN');
+    #    VendBankAccount.appendChild(BankCIN);
+    #
+    #    ContactPerson = doc.createElement('ContactPerson');
+    #    ContactPerson.innerText('Thomas Mark');
+    #    VendBankAccount.appendChild(ContactPerson);
+    #
+    #    MsgToBank = doc.createElement('MsgToBank');
+    #    MsgToBank.innerText('AS60000042');
+    #    VendBankAccount.appendChild(MsgToBank);
+    #
+    #    Name = doc.createElement('Name');
+    #    Name.innerText('Testbank');
+    #    VendBankAccount.appendChild(Name);
+    #
+    #    RegistrationNum = doc.createElement('RegistrationNum');
+    #    RegistrationNum.innerText('8524560');
+    #    VendBankAccount.appendChild(RegistrationNum);
+    #
+    #    SWIFTNo = doc.createElement('SWIFTNo');
+    #    SWIFTNo.innerText('CRPPIT2P337');
+    #    VendBankAccount.appendChild(SWIFTNo);
+    #
+    #    VendAccount = doc.createElement('VendAccount');
+    #    VendAccount.innerText('TESTVEND000001');
+    #    VendBankAccount.appendChild(VendAccount);
+    #
+    #    PostalAddrView = doc.createElement('PostalAddrView');
+    #    PostalAddrView.setAttribute('class','entity');
+    #    VendBankAccount.appendChild(PostalAddrView);
+    #
+    #    City = doc.createElement('City');
+    #    City.innerText('Glasgow');
+    #    PostalAddrView.appendChild(City);
+    #
+    #    CountryRegionId = doc.createElement('CountryRegionId');
+    #    CountryRegionId.innerText('GBR');
+    #    PostalAddrView.appendChild(CountryRegionId);
+    #
+    #    DistrictName = doc.createElement('DistrictName');
+    #    DistrictName.innerText('DIST4');
+    #    PostalAddrView.appendChild(DistrictName);
+    #
+    #    LocationName = doc.createElement('LocationName');
+    #    LocationName.innertext('Default');
+    #    PostalAddrView.appendChild(LocationName);
+    #
+    #    Street = doc.createElement('Street');
+    #    Street.innerText('Nevada Park Baltimore Street');
+    #    PostalAddrView.appendChild(Street);
+    #
+    #    ZipCode = doc.createElement('ZipCode');
+    #    ZipCode.innerText('TW12 2LL');
+    #    PostalAddrView.appendChild(ZipCode);
+    #
+    #    doc.appendChild(Envelope);
+    #
+    #    doc.save(#filename);
+    #
+    #    info('Done');
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{166D9434-1122-4E9F-B7E2-C2FCCE125E8E}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: infolog unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #infolog
+    #static void infolog(Args _args)
+    #{
+    #error("rakesh");
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{19180131-EA0A-4B51-8833-15BB5E8EEDAF}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: DateRakesh1 unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #DateRakesh1
+    #static void DateRakesh1(Args _args)
+    #{
+    #    yr         y  = 2014;
+    #    int        m  = 12;
+    #    int        ms = 2;
+    #    int        ys = 0;
+    #    TransDate  endDate;
+    #    int        NoOfDays;
+    #    TransDate  d1,d2;
+    #    int        daysdiff;
+    #
+    #
+    #     d1  = mkdate(1,m-ms,y-ys);
+    #     d2  = today();
+    #     daysDiff = d2 - d1;
+    #     info(strfmt("%1",daysDiff));
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{A3F449D6-799F-4659-A41D-317DCABDC55F}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: ErrorLog unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #ErrorLog
+    #static void ErrorLog(Args _args)
+    #{
+    #    Container line;
+    #    str messagebody;
+    #    int       i;
+    #    TextIo    file;
+    #     #define.filename('c:\\ErrorLog.txt')
+    #    #File
+    #    ;
+    #
+    #    file = new TextIO(#filename, #io_write);
+    #    file.outFieldDelimiter(';');// for semicolon seperator
+    #
+    #    if (!file || file.status() != IO_Status::Ok)
+    #    {
+    #        throw error("File cannot be opened.");
+    #    }
+    #
+    #   try
+    #    {
+    #        info("In the 'try' block. (j1)");
+    #        throw Exception::Error;
+    #    }
+    #    catch (Exception::Error)
+    #    {
+    #        info("Caught 'Exception::Error'.");
+    #        info("Error1");
+    #        error("error2");
+    #        warning("warning1");
+    #    }
+    #
+    #   for (i=1; i<=infolog.line(); i++)
+    #    {
+    #        messagebody = infolog.text(i);
+    #        line = [messagebody];
+    #        file.writeExp(line);
+    #    }
+    #}
+    #
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{FC21B39B-2164-4B6F-8F1E-F865C1899990}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: Rak_ToWord unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #Rak_ToWord
+    #static void Rak_ToWord(Args _args)
+    #{
+    #    COM wordApplication;
+    #    COM wordDocuments;
+    #    COM wordDocument;
+    #    COM wordRange;
+    #    ;
+    #
+    #    wordApplication = new COM("word.application");
+    #    wordApplication.visible(TRUE);
+    #    wordDocuments = wordApplication.Documents();
+    #    wordDocument = wordDocuments.add();
+    #    wordDocument.saveas("c:\\TestDoc.doc");
+    #    wordDocument.activate();
+    #    wordRange = wordDocument.range(0,0);
+    #    wordRange.insertafter("Rajdip Das");
+    #
+    #    wordRange.italic(true);
+    #    wordDocument.save();
+    # //   wordDocument.close();
+    # //   wordApplication.quit();
+    #}
+    #
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{445A98F8-676A-4FC3-BBE5-505686433BD6}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: rak_excelImport unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #rak_excelImport
+    #static void rak_excelImport(Args _args)
+    #{
+    #    SysExcelApplication application;
+    #    SysExcelWorkbooks   workbooks;
+    #    SysExcelWorkbook    workbook;
+    #    SysExcelWorksheets  worksheets;
+    #    SysExcelWorksheet   worksheet;
+    #    SysExcelCells       cells;
+    #    COMVariantType      type;
+    #    FileName            filename;
+    #    CustGroup           custGroup;
+    #    int                 row;
+    #    str                 _custGroup;
+    #    str                 _name;
+    #
+    #    filename = "C:\\Users\\394116\\Documents\\rak.xlsx";
+    #
+    #    application = SysExcelApplication::construct();
+    #    workbooks = application.workbooks();
+    #
+    #    try
+    #    {
+    #        workbooks.open(filename);
+    #    }
+    #    catch (Exception::Error)
+    #    {
+    #        throw error("File cannot be opened.");
+    #    }
+    #
+    #    workbook = workbooks.item(1);
+    #    worksheets = workbook.worksheets();
+    #    worksheet = worksheets.itemFromNum(1); //Here 1 is the worksheet Number
+    #    cells = worksheet.cells();
+    #
+    #
+    #    do
+    #    {
+    #        try
+    #        {
+    #            ttsBegin;
+    #        row++;
+    #        _custGroup = cells.item(row, 1).value().bStr();
+    #        _name      = cells.item(row, 2).value().bStr();
+    #
+    #        custGroup.CustGroup = _custGroup;
+    #        custGroup.Name      = _name;
+    #        custGroup.insert();
+    #            ttsCommit;
+    #        }
+    #        catch
+    #        {
+    #            Error(strfmt("Upload Failed in row %1", row));
+    #        }
+    #
+    #        type = cells.item(row+1, 1).value().variantType();
+    #    }
+    #    while (type != COMVariantType::VT_EMPTY);
+    #
+    #
+    #    info("success");
+    #     application.quit();
+    # }
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{32D0E708-9AB8-4B19-B0F7-5DAC5582A60A}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: rak_container unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #rak_container
+    #static void rak_container(Args _args)
+    #{
+    #    container cont   = ["1","Rakesh","2","Karthik","3","Syed","4","Savitha","5","Priyanka","false","true"];
+    #    List      mylist = new List(Types::AnyType);
+    #    int       i;
+    #    str       temp;
+    #
+    #    //for(i = 1 ;i <= conLen(cont); i++)
+    #    //{
+    #       //if ((typeOf(conPeek(cont,i)) == Types::Integer))
+    #        //{
+    #           //temp = int2str(conpeek(cont,i));
+    #           //mylist.addEnd(temp);
+    #        //}
+    #//
+    #        //else if((typeOf(conPeek(cont,i)) == Types::Enum))
+    #        //{
+    #           //temp = enum2str(conpeek(cont,i));
+    #           //mylist.addEnd(temp);
+    #        //}
+    #//
+    #        //else
+    #        //{
+    #           //mylist.addEnd(conPeek(cont,i));
+    #        //}
+    #    //}
+    #//
+    #    //info(mylist.toString());
+    #    mylist = con2List(cont);
+    #
+    #    info(mylist.toString());
+    #
+    # }
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{053333AD-03A3-4AFA-BF67-635FE63C82A4}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: Rakesh_InsertRecord unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #Rakesh_InsertRecord
+    #static void Rakesh_InsertRecord(Args _args)
+    #{
+    #    int               i;
+    #    Test_insert       test_insert;
+    #
+    #    RecordInsertList records = new RecordInsertList(tableNum(Test_insert));
+    #
+    #    for ( i=1; i<=10000; i++ )
+    #    {
+    #        test_insert.Number  = i;
+    #        test_insert.Id      = int2str(i);
+    #
+    #        records.add(test_insert);
+    #    }
+    #
+    #    records.insertDatabase();
+    #    info("successful");
+    #}
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{41686A56-24C3-4C05-88D2-FF9A1C611EEB}
+  ENDPROPERTIES
+  
+
+***Element: JOB
+
+; Microsoft Dynamics AX Job: Rak_export unloaded
+; --------------------------------------------------------------------------------
+  JOBVERSION 1
+  
+  SOURCE #Rak_export
+    #public static void Rak_export(Args _args)
+    #{
+    #    TextIO          file;
+    #    container       line;
+    #    InventTable     inventTable;
+    #
+    #    #define.filename('c:\\dpk_Items.csv')
+    #    #File
+    #    ;
+    #
+    #
+    #    file = new TextIO(#filename, #io_write);
+    #    file.outFieldDelimiter(';');// for semicolon seperator
+    #
+    #    info("Exporting Data to Text file....Started");
+    #    if (!file || file.status() != IO_Status::Ok)
+    #    {
+    #        throw error("File cannot be opened.");
+    #    }
+    #    line = ["ItemId","ItemType"];
+    #    file.writeExp(line);
+    #    while select inventTable
+    #    {
+    #        line = [InventTable.ItemId, enum2str(InventTable.ItemType)];
+    #        file.writeExp(line);
+    #    }
+    #    info("Completed");
+    #
+    #}
+    #
+    #
+    #
+    #
+  ENDSOURCE
+  PROPERTIES
+    Origin              #{8A5D1ECA-0FD3-4063-9453-89AB9683075F}
+  ENDPROPERTIES
+  
+
+***Element: PRN
+
+; Microsoft Dynamics AX Project : Rakesh_RelationProject unloaded
+; --------------------------------------------------------------------------------
+  PROJECTVERSION 2
+  
+  PROJECT #Rakesh_RelationProject
+  SHARED
+  PROPERTIES
+    Name                #Rakesh_RelationProject
+    Origin              #{9E380E69-72AB-48B2-8F92-B8FC49A5FB04}
+  ENDPROPERTIES
+  
+    PROJECTCLASS ProjectNode
+    GROUP #Data Dictionary
+      PROPERTIES
+        Name                #Data Dictionary
+        ProjectGroupType    #DataDictionary
+        GroupMask           #
+        PreventEditProperties #No
+      ENDPROPERTIES
+      
+      GROUP #Tables
+        PROPERTIES
+          Name                #Tables
+          ProjectGroupType    #Tables
+          GroupMask           #
+          PreventEditProperties #No
+        ENDPROPERTIES
+        
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 44
+          UTILOBJECTID 103685
+          NODETYPE 204
+          NAME #TabEmplProjVts
+        ENDNODE
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 44
+          UTILOBJECTID 103688
+          NODETYPE 204
+          NAME #ClothesTable
+        ENDNODE
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 44
+          UTILOBJECTID 103689
+          NODETYPE 204
+          NAME #MenClothesOrder
+        ENDNODE
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 44
+          UTILOBJECTID 103690
+          NODETYPE 204
+          NAME #WomenClothesOrder
+        ENDNODE
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 44
+          UTILOBJECTID 103691
+          NODETYPE 204
+          NAME #ChildrenClothesOrder
+        ENDNODE
+        ENDGROUP
+        
+      GROUP #Extended Data Types
+        PROPERTIES
+          Name                #Extended Data Types
+          ProjectGroupType    #ExtendedDataTypes
+          GroupMask           #
+          PreventEditProperties #No
+        ENDPROPERTIES
+        
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 41
+          UTILOBJECTID 103765
+          NODETYPE 228
+          NAME #CollectionTypeEDT
+        ENDNODE
+        ENDGROUP
+        
+      GROUP #Base Enums
+        PROPERTIES
+          Name                #Base Enums
+          ProjectGroupType    #BaseEnums
+          GroupMask           #
+          PreventEditProperties #No
+        ENDPROPERTIES
+        
+        BEGINNODE
+          FILETYPE 0
+          UTILTYPE 40
+          UTILOBJECTID 101236
+          NODETYPE 209
+          NAME #CollectionTypeId
+        ENDNODE
+        ENDGROUP
+        
+      ENDGROUP
+      
+    GROUP #Classes
+      PROPERTIES
+        Name                #Classes
+        ProjectGroupType    #Classes
+        GroupMask           #
+        PreventEditProperties #No
+      ENDPROPERTIES
+      
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 45
+        UTILOBJECTID 1023962
+        NODETYPE 329
+        NAME #DateRakesh
+      ENDNODE
+      ENDGROUP
+      
+    GROUP #Forms
+      PROPERTIES
+        Name                #Forms
+        ProjectGroupType    #Forms
+        GroupMask           #
+        PreventEditProperties #No
+      ENDPROPERTIES
+      
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 11
+        UTILOBJECTID 0
+        NODETYPE 201
+        NAME #ProgressTestForm
+      ENDNODE
+      ENDGROUP
+      
+    GROUP #Jobs
+      PROPERTIES
+        Name                #Jobs
+        ProjectGroupType    #Jobs
+        GroupMask           #
+        PreventEditProperties #No
+      ENDPROPERTIES
+      
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #SBS_CreateXML_DX300A
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #xml_rak_370A
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #infolog
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #DateRakesh1
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #ErrorLog
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #Rak_ToWord
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #rak_excelImport
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #rak_container
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #Rakesh_InsertRecord
+      ENDNODE
+      BEGINNODE
+        FILETYPE 0
+        UTILTYPE 5
+        UTILOBJECTID 0
+        NODETYPE 215
+        NAME #Rak_export
+      ENDNODE
+      ENDGROUP
+      
+  ENDPROJECT
+  
+
+***Element: END
